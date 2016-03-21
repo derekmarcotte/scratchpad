@@ -89,7 +89,7 @@ flexibility in the supported configuration syntax.
 At the most complicated, there are two supported levels of grouping and
 inheritance available:
 
-```Nginx
+```javascript
 global
 group {
 	test {
@@ -99,17 +99,17 @@ group {
 
 A test could reside at any level of nesting, each is valid:
 
-```Nginx
+```javascript
 test="true"
 ```
 
-```Nginx
+```javascript
 test1 {
 	test="true"
 }
 ```
 
-```Nginx
+```javascript
 group1 {
 	test1 {
 		test="true"
@@ -119,7 +119,7 @@ group1 {
 
 If a test is found at a depth, no child configurations are traversed:
 
-```Nginx
+```javascript
 group1 {
 	test="true"
 	test1 {
@@ -130,7 +130,7 @@ group1 {
 
 Inheritable settings are passed down, closest to the test first:
 
-```Nginx
+```javascript
 interval=1s
 group1 {
 	interval=2s
@@ -172,7 +172,7 @@ change event occurs.
 Any parameters to pass to the test command as an argument.  An example
 combination may be to run a config-file only shell command:
 
-```Nginx
+```javascript
 test="/bin/sh"
 test_arguments=["-c", "true; if $?; then false; fi" ]
 ```
@@ -189,7 +189,7 @@ example:
 
 Changing a rule (or group) from:
 
-```Nginx
+```javascript
 rule {
 	test="check-host"
 	change_fail="down-host"
@@ -199,7 +199,7 @@ rule {
 
 to:
 
-```Nginx
+```javascript
 rule {
 	runs=1
 	status="always-fail"
@@ -245,7 +245,7 @@ will run immediately.
 Any parameters to pass to the change\_success command as an argument.  An
 example combination may be to run a config-file only shell command:
 
-```Nginx
+```javascript
 change_success="/bin/sh"
 change_success_arguments=["-c", "true; if $?; then false; fi" ]
 ```
@@ -263,7 +263,7 @@ change\_fail will run immediately.
 Any parameters to pass to the change\_fail command as an argument.  An example
 combination may be to run a config-file only shell command:
 
-```Nginx
+```javascript
 change_fail="/bin/sh"
 change_fail_arguments=["-c", "true; if $?; then false; fi" ]
 ```
