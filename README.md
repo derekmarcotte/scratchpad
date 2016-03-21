@@ -1,9 +1,9 @@
-# ![hfm mascot](doc/hfm-mascot.png "more" ) [hfm](https://github.com/derekmarcotte/hfm) (High Frequency Monitor)
+# [hfm](https://github.com/derekmarcotte/hfm) (High Frequency Monitor) ![hfm mascot](doc/hfm-mascot.png)
 
 hfm is an application to run tests in parallel at a high frequency. If the
 outcome of the test results in a state change, other commands can be executed.
 
-```javascript
+```Nginx
 global
 group {
 	test {
@@ -13,7 +13,7 @@ group {
 
 A test could reside at any level of nesting, each is valid:
 
-```javascript
+```Nginx
 test="true"
 ```
 ```Nginx
@@ -21,7 +21,7 @@ test1 {
 	test="true"
 }
 ```
-```javascript
+```Nginx
 group1 {
 	test1 {
 		test="true"
